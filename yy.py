@@ -78,8 +78,8 @@ async def fmeme(ctx):
     await ctx.send(file=ilkr)
 
 @bot.command()
-async def rastgelemem(ctx):
-    bilinmez=random.choices(os.listdir("resim"),weights=[3,2,1],k=1)
+async def mem(ctx):
+    bilinmez=random.choice(os.listdir("resim"))
     with open(f"resim/{bilinmez}","rb") as f:
         r=discord.File(f)
     await ctx.send(file=r)
@@ -157,10 +157,27 @@ async def dog(ctx):
 
 
 
+@bot.command()
+async def hikaye(ctx):
+    x=random.choice(os.listdir("hikayeler"))
+    with open(f"hikayeler/{x}","r",encoding='utf-8')as f:
+        q=discord.File(f)
+    await ctx.send(file=q)
 
 
+@bot.command()
+async def naber(ctx):
+    x=["iyi,sen?","stabil,senden?","olumsuzluk yok,sen?","iyi diyelim iyi olalım,sen?"]
+    xq=random.choices(x,weights=[9,2,5,7],k=1)
+    await ctx.send(xq)
 
 
+@bot.command()
+async def nerelisin(ctx):
+    await ctx.send("Türküm.Sen nerelisin?")
 
-
-bot.run("MTI4NzAwNzMwMjg2NzQ4ODg0OA.GSFE6i.R7GWr3sndEbUnf3kpZDfdwMyaGOPzpUQTBB3H8")
+@bot.command()
+async def satranc_acilis(ctx):
+    x=["İtalyan Açılışı","Fransız Savunması","Caroo-Kann Defansı","Sicilyan Savunması","Vezir Gambiti","Şah Hint Açılışı"]
+    qx=random.choices(x,weights=[8,5,7,6,3,1],k=1)
+    await ctx.send(qx)
